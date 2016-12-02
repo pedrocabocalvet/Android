@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/missatge_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0 %"
+        android:id="@+id/percentatge"
+        android:layout_gravity="center"
+        android:gravity="center" />
+
+
+    <io.netopen.hotbitmapgg.library.view.RingProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        app:max="100"
+        android:layout_marginTop="100dp"
+        app:ringColor="@color/colorPrimary"
+        app:ringProgressColor="@color/colorPrimaryDark"
+        app:ringWidth="3dp"
+        app:style="FILL"
+        app:textColor="@color/colorPrimary"
+        app:textIsShow="true"
+        app:textSize="16sp" />
+ <!--   <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:layout_gravity="center_horizontal"
+        />  -->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iniciar"
+            android:id="@+id/b_iniciar"
+            android:padding="12dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel·lar"
+            android:id="@+id/b_cancelar"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
