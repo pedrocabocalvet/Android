@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MiThread miThread;
     Object[] objetos;
     RingProgressBar mRingProgressBar;
+    borrar nombre;
 
 
 
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        nombre = new borrar("jose");
+        Log.d("prueba",nombre.imprimirNombre());
 
         miThread = null;
 
@@ -58,9 +61,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mRingProgressBar.setProgress(savedInstanceState.getInt("porcentajeBarra"));
             porcentaje.setText(savedInstanceState.getInt("porcentajeBarra")+" %");
 
-            if(getLastNonConfigurationInstance() != null) {
-                Log.d("prueba","llego");
-                miThread = (MiThread) getLastNonConfigurationInstance();
+            if(getLastCustomNonConfigurationInstance() != null) {
+
+
+
+                miThread = (MiThread) getLastCustomNonConfigurationInstance();
+                miThread.setPorcentaje(porcentaje);
+                miThread.setmRingProgressBarAtributo(mRingProgressBar);
+
 
 
             }
@@ -92,8 +100,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public Object onRetainCustomNonConfigurationInstance() {
-        return miThread;
+
+
+
+       return miThread;
     }
+
+//    @Override
+//    public Object onRetainNonConfigurationInstance() {
+//        final MyDataObject data = collectMyLoadedData();
+//        return data;
+//    }
+
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

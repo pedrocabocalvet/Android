@@ -15,6 +15,8 @@ import io.netopen.hotbitmapgg.library.view.RingProgressBar;
 public class MiThread extends AsyncTask<Object, Object, TextView> {
 
     int contador=0;
+    TextView porcentajeAtributo = null;
+    RingProgressBar mRingProgressBarAtributo = null;
 
     @Override
 
@@ -41,8 +43,15 @@ public class MiThread extends AsyncTask<Object, Object, TextView> {
     protected void onProgressUpdate(Object... progress) {
 
 
-        RingProgressBar barra = (RingProgressBar) progress[0];
-        TextView porcentaje = (TextView) progress[1];
+        RingProgressBar barra;
+        TextView porcentaje;
+        if(this.porcentajeAtributo!=null){
+            porcentaje = this.porcentajeAtributo;
+            barra = this.mRingProgressBarAtributo;
+        }else {
+            porcentaje = (TextView) progress[1];
+            barra = (RingProgressBar) progress[0];
+        }
         barra.setProgress(contador);
         porcentaje.setText(""+contador+" %");
 
@@ -59,8 +68,21 @@ public class MiThread extends AsyncTask<Object, Object, TextView> {
     protected void onCancelled(TextView t) {
 
         Toast.makeText(t.getContext(), "Has Cancelado la operacion", Toast.LENGTH_SHORT).show();
+
+
     }
 
+    public void imprimir () {
+        Log.d("prueba","llego 2");
+    }
+
+    public void setPorcentaje(TextView txt){
+        this.porcentajeAtributo = txt;
+    }
+
+    public void setmRingProgressBarAtributo(RingProgressBar mRingProgressBar){
+        this.mRingProgressBarAtributo = mRingProgressBar;
+    }
 
 
 }
