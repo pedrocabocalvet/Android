@@ -36,7 +36,7 @@ public class MyDBAdapter {
     // Instancia de la base de datos
     private SQLiteDatabase db;
 
-    // CONSTANTES QUE REPRESENTAN LOS NOMBRES DE LAS TABLAS
+    // CONSTANTES QUE REPRESENTAN LOS NOMBRES DE LAS COLUMNAS EN LAS TABLAS
     private static final String NOMBRE = "nombre";
     private static final String EDAD = "edad";
     private static final String CICLO = "ciclo";
@@ -75,6 +75,8 @@ public class MyDBAdapter {
         newValues.put(NOTAMEDIA,notaMedia);
         db.insert(DATABASE_TABLEESTUDIANTES,null,newValues);
     }
+
+    
 
     // funcion que se encarga de insertar profesores en la bbdd
     public void insertarProfesor(String nombre, int edad, String ciclo,int curso,String despacho){
@@ -304,7 +306,6 @@ public class MyDBAdapter {
         newValues.put(CURSO,cursoNuevo);
         newValues.put(NOTAMEDIA,notaMediaNuevo);
 
-        rowAffected = db.update(DATABASE_TABLEESTUDIANTES,newValues," _id="+ id,null);
         return rowAffected;
     }
 

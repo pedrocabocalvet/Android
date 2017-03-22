@@ -45,6 +45,7 @@ public class MiThread extends AsyncTask<Object, Object, TextView> {
 
         RingProgressBar barra;
         TextView porcentaje;
+
         if(this.porcentajeAtributo!=null){
             porcentaje = this.porcentajeAtributo;
             barra = this.mRingProgressBarAtributo;

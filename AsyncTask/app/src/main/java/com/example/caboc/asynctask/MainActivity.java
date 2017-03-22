@@ -63,8 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             if(getLastCustomNonConfigurationInstance() != null) {
 
-
-
                 miThread = (MiThread) getLastCustomNonConfigurationInstance();
                 miThread.setPorcentaje(porcentaje);
                 miThread.setmRingProgressBarAtributo(mRingProgressBar);
@@ -100,9 +98,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public Object onRetainCustomNonConfigurationInstance() {
-
-
-
        return miThread;
     }
 
